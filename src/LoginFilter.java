@@ -1,5 +1,6 @@
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class LoginFilter implements Filter {
         if (httpRequest.getSession().getAttribute("user") == null) {
             httpResponse.sendRedirect("login.html");
         } else {
+            // Users already exist in session, so direct them to pages he wish to access
             chain.doFilter(request, response);
         }
     }
@@ -50,12 +52,9 @@ public class LoginFilter implements Filter {
      *
      * @see Filter#init(FilterConfig)
      */
-
     public void init(FilterConfig fConfig) {
     }
 
     public void destroy() {
     }
-
-
 }

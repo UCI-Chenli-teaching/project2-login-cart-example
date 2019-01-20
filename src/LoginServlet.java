@@ -5,12 +5,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 //
 @WebServlet(name = "LoginServlet", urlPatterns = "/api/login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -26,7 +27,9 @@ public class LoginServlet extends HttpServlet {
             // Login success:
 
             // set this user into the session
-            request.getSession().setAttribute("user", new User(username));
+            String sessionId = ((HttpServletRequest) request).getSession().getId();
+            Long lastAccessTime = ((HttpServletRequest) request).getSession().getLastAccessedTime();
+            request.getSession().setAttribute("user", new User(username)); // First time login, session create time = session last access time
 
             JsonObject responseJsonObject = new JsonObject();
             responseJsonObject.addProperty("status", "success");
@@ -39,7 +42,7 @@ public class LoginServlet extends HttpServlet {
             responseJsonObject.addProperty("status", "fail");
             if (!username.equals("anteater")) {
                 responseJsonObject.addProperty("message", "user " + username + " doesn't exist");
-            } else if (!password.equals("123456")) {
+            } else {
                 responseJsonObject.addProperty("message", "incorrect password");
             }
             response.getWriter().write(responseJsonObject.toString());
