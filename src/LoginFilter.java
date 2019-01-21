@@ -20,7 +20,7 @@ public class LoginFilter implements Filter {
 
         System.out.println("LoginFilter: " + httpRequest.getRequestURI());
 
-        // Check if the URL is allowed to be accessed without logged in
+        // Check if the URL is allowed to be accessed without log in
         if (this.isUrlAllowedWithoutLogin(httpRequest.getRequestURI())) {
             // Keep default action: pass along the filter chain
             chain.doFilter(request, response);
@@ -47,9 +47,9 @@ public class LoginFilter implements Filter {
     }
 
     /**
-     * We need to have these functions because current class implements Filter.
-     * But we don’t need to implement them. 
-     *
+     * This class implements the interface: Filter. In Java, a class that implements an interface
+     * must implemented all the methods declared in the interface. Therefore, we include the methods
+    * below.
      * @see Filter#init(FilterConfig)
      */
     public void init(FilterConfig fConfig) {

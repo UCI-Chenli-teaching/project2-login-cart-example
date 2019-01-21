@@ -1,4 +1,4 @@
-## This example shows how to implement the login, session and form feature using the Microservices architecture design.
+## This example shows how to implement the login, session and form features using the Microservices architecture design.
 
 ### To run this example:
 1. Clone this repository using `git clone https://github.com/UCI-Chenli-teaching/2019w-project2-login-cart-example.git`
@@ -9,7 +9,7 @@
 ### Features
 1. This example application allows you to login with the username and password provided above.
 2. When you land on the welcome page, it will show your current session ID and last access time. 
-3. It also simulates a shopping cart feature. When you type in items that you want to store in the current seesion and then click `add`, the web page will show the a list of items that consist of your previous items and the one you just added. When you refresh the page and add more items, the list that the web page shows will contain the all items that you have added to the list in this session. 
+3. It also simulates a shopping cart feature. When you type in items that you want to store in the current seesion and then click `add`, the web page will show the a list of items that consist of your previous items and the one you just added. When you refresh the page and add more items, the list that the web page shows will contain all the items that you have added to the list in this session. 
 
 ### Brief Explanation
 
@@ -38,8 +38,8 @@
   `IndexServlet.java` enables you to see your current session information, last access time and a list of items that you added through a `form` in that session. The `IndexServlet.java` has two methods, `doPost` and `doGet`.
   * The `doPost` method is invoked when you have HTTP Post requests through the api `/api/index`, which lands on `index.html` through `index.js`.
     * It first gets the session ID, overrides the last access time, and writes these values in the JSON Object that is sent through `response`. 
-    * Next, `index.js` shows the content in the response by an `ajax` call through `jQuery`, which appears in the `index.html`.
+    * Next, `index.js` shows the content in the response by an `ajax` call through `jQuery`, which appears in `index.html`.
   * The `doGet` method is invoked with HTTP Get requests, and it is responsible for the item cart feature.    
-    * First, it gets the session ID and the list of items from current session.
-    * If there is no such array of items, it will create an empty array and add the item that the user had typed in.
+    * First, it gets the session ID and the list of items from the current session.
+    * If there is no such array of items, it will create an empty array and add the item that the user typed in.
     * Otherwise, it creates an array and sends the list of items through `index.js`.

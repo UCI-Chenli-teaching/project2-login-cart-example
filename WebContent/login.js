@@ -33,7 +33,7 @@ function submitLoginForm(formSubmitEvent) {
      * for more details: https://api.jquery.com/submit/
      */
 
-    formSubmitEvent.preventDefault();
+    // formSubmitEvent.preventDefault();
 
     jQuery.post(
         "api/login",
