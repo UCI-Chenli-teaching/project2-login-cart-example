@@ -25,5 +25,6 @@ hs_err_pid*
 # get rid of idea files
 .idea/
 /target/
-.project/
+.project
+.classpath
 .settings/
