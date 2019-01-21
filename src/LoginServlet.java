@@ -20,16 +20,17 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        /* This example only allows username/password to be test/test
-        /  in the real project, you should talk to the database to verify username/password
-        */
+        /**
+         * This example only allows username/password to be anteater/123456
+         * In real world projects, you should talk to the database to verify username/password
+         */
+         
         if (username.equals("anteater") && password.equals("123456")) {
-            // Login success:
-
-            // set this user into the session
+            // Login succeeds
+            // Set this user into current session
             String sessionId = ((HttpServletRequest) request).getSession().getId();
             Long lastAccessTime = ((HttpServletRequest) request).getSession().getLastAccessedTime();
-            request.getSession().setAttribute("user", new User(username)); // First time login, session create time = session last access time
+            request.getSession().setAttribute("user", new User(username));
 
             JsonObject responseJsonObject = new JsonObject();
             responseJsonObject.addProperty("status", "success");
@@ -37,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 
             response.getWriter().write(responseJsonObject.toString());
         } else {
-            // Login fail
+            // Login fails
             JsonObject responseJsonObject = new JsonObject();
             responseJsonObject.addProperty("status", "fail");
             if (!username.equals("anteater")) {

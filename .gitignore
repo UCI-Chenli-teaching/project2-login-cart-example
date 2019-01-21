@@ -26,8 +26,8 @@ hs_err_pid*
 .idea/
 
 # built class
-/target/
-
+target/
+bin/
 # Eclipse Core
 .project
 

@@ -20,7 +20,7 @@ public class LoginFilter implements Filter {
 
         System.out.println("LoginFilter: " + httpRequest.getRequestURI());
 
-        // Check if this URL is allowed to access without logging in
+        // Check if the URL is allowed to be accessed without logged in
         if (this.isUrlAllowedWithoutLogin(httpRequest.getRequestURI())) {
             // Keep default action: pass along the filter chain
             chain.doFilter(request, response);
@@ -31,13 +31,13 @@ public class LoginFilter implements Filter {
         if (httpRequest.getSession().getAttribute("user") == null) {
             httpResponse.sendRedirect("login.html");
         } else {
-            // Users already exist in session, so direct them to pages he wish to access
+            // If the user exists in current session, redirects the user to the corresponding URL
             chain.doFilter(request, response);
         }
     }
 
-    // Setup your own rules here to allow accessing some resources without logging in
-    // Always allow your own login related requests(html, js, servlet, etc..)
+    // Setup your own rules here to allow accessing some resources without logged in
+    // Always allow your own login related requests (html, js, servlet, etc..)
     // You might also want to allow some CSS files, etc..
     private boolean isUrlAllowedWithoutLogin(String requestURI) {
         requestURI = requestURI.toLowerCase();
@@ -47,8 +47,8 @@ public class LoginFilter implements Filter {
     }
 
     /**
-     * We need to have these function because this class implements Filter.
-     * But we don’t need to put any code in them.
+     * We need to have these functions because current class implements Filter.
+     * But we don’t need to implement them. 
      *
      * @see Filter#init(FilterConfig)
      */

@@ -9,13 +9,12 @@ function handleLoginResult(resultDataString) {
     console.log(resultDataJson);
     console.log(resultDataJson["status"]);
 
-    // If login success, redirect to index.html page
+    // If login succeeds, it will redirect the user to index.html
     if (resultDataJson["status"] === "success") {
         window.location.replace("index.html");
     }
-    // If login fail, display error message on <div> with id "login_error_message"
+    // If login fails, the web page will display error messages on <div> with id "login_error_message"
     else {
-
         console.log("show error message");
         console.log(resultDataJson["message"]);
         jQuery("#login_error_message").text(resultDataJson["message"]);
@@ -28,10 +27,12 @@ function handleLoginResult(resultDataString) {
  */
 function submitLoginForm(formSubmitEvent) {
     console.log("submit login form");
+    /**
+     * Important: Disabling the default action of submit
+     * will cause the page to refresh. See jQuery reference 
+     * for more details: https://api.jquery.com/submit/
+     */
 
-    // Important: disable the default action of submitting the form
-    //   which will cause the page to refresh
-    //   see jQuery reference for details: https://api.jquery.com/submit/
     formSubmitEvent.preventDefault();
 
     jQuery.post(
