@@ -24,3 +24,14 @@ hs_err_pid*
 
 # get rid of idea files
 .idea/
+
+# built class
+target/
+bin/
+# Eclipse Core
+.project
+
+# JDT specific
+.classpath
+
+.settings/
