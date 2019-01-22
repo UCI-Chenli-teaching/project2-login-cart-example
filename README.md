@@ -1,7 +1,7 @@
 ## This example shows how to implement the login, session and form features using the Microservices architecture design.
 
 ### To run this example:
-1. Clone this repository using `git clone https://github.com/UCI-Chenli-teaching/project2-login-cart-example.git`
+1. Clone this repository using `git clone https://github.com/UCI-Chenli-teaching/2019w-project2-login-cart-example.git`
 2. Open Eclipse -> File -> import -> under "Maven" -> "Existing Maven Projects" -> Click "Finish".
 3. For "Root Directory", click "Browse" and select this repository's folder. Click "Finish".
 4. You can run this project on Tomcat now. The default username is `anteater` and password is `123456` .
