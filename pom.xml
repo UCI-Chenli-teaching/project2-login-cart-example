@@ -1,8 +1,8 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>2019w-project2-login-cart-example</groupId>
-    <artifactId>2019w-project2-login-cart-example</artifactId>
+    <groupId>project2-login-cart-example</groupId>
+    <artifactId>project2-login-cart-example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <dependencies>
@@ -31,7 +31,7 @@
     </dependencies>
 
     <build>
-        <finalName>2019w-project2-login-cart-example</finalName>
+        <finalName>project2-login-cart-example</finalName>
         <sourceDirectory>src</sourceDirectory>
         <plugins>
             <plugin>

@@ -6,7 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet Filter implementation class LoginFilter
+ * Servlet Filter implementation class: LoginFilter.
+ * All URL patterns will go through the LoginFilter
  */
 @WebFilter(filterName = "LoginFilter", urlPatterns = "/*")
 public class LoginFilter implements Filter {

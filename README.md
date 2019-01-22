@@ -26,7 +26,7 @@
   - It gets the username and password from the parameters.
   - It verifies the username and password.
   - If login succeeds, it puts the `User` object in the session. Then it sends back a JSON response: `{"status": "success", "message": "success"}` .
-  - If login fails, the JSON response will be: `{"status": "success", "message": "incorrect password"}` or `{"status": "success", "message": "user <username> doesn't exist"}`.
+  - If login fails, the JSON response will be: `{"status": "fail", "message": "incorrect password"}` or `{"status": "fail", "message": "user <username> doesn't exist"}`.
    
  
  `LoginFilter.java` is a special `Filter` class. It serves the purpose that for each URL request, if the user is not logged in, then it redirects the user to the `login.html` page. 

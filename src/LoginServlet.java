@@ -1,5 +1,4 @@
 import com.google.gson.JsonObject;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +7,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-//
+/**
+ * This class is declared as LoginServlet in web annotation, 
+ * which is mapped to the URL pattern /api/login
+ */
 @WebServlet(name = "LoginServlet", urlPatterns = "/api/login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -24,7 +26,6 @@ public class LoginServlet extends HttpServlet {
          * This example only allows username/password to be anteater/123456
          * In real world projects, you should talk to the database to verify username/password
          */
-         
         if (username.equals("anteater") && password.equals("123456")) {
             // Login succeeds
             // Set this user into current session
